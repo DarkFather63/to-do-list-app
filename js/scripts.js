@@ -19,14 +19,14 @@ li.on('dblclick', function crossOut(){
   li.toggleClass('strike')
 });
 
-function deleteListItem() {
-  li.addClass('delete');
-};
 
-let crossOutButton = li.append('<crossOutButton></crossOutButton>');
+let crossOutButton = $('<crossOutButton></crossOutButton>');
 crossOutButton.append(document.createTextNode('X'));
 li.append(crossOutButton);
-crossOutButton.on('click', deleteListItem());
+
+crossOutButton.on('click', function deleteListItem() {
+  li.addClass('delete');
+});
 
 $('#list').sortable();
 
